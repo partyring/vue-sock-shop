@@ -1,0 +1,34 @@
+body {
+    background-color: #ccb7c7;
+}
+
+.app {
+    padding-right: 15%;
+    padding-left: 15%;
+    padding-top: 30px;
+}
+
+.cart {
+    float: right;
+}
+
+.price--original {
+    text-decoration: line-through;
+}
+
+.badge--sale {
+    background-color: #6ed3a2;
+    padding: 3px;
+}
+
+.colour-box {
+    height: 50px;
+    width: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.product-preview {
+    height: 300px;
+    width: auto;
+}
