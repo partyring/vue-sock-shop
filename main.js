@@ -8,7 +8,7 @@ Vue.component('product', {
     template:
     `
         <div class="product">
-        <span class="cart">Cart ({{ cart }})</span>
+        
 
             <div class="product-info">
                 <h1>{{ title }}</h1>
@@ -79,12 +79,11 @@ Vue.component('product', {
                     stockCount: 22
                 }
             ],
-            cart: 0
         }
     },
     methods: {
         addToCart: function () {
-            this.cart += 1
+            this.$emit('add-to-cart')
         },
         updateProduct: function (index) {
             this.selectedVariant = index;
@@ -129,6 +128,12 @@ Vue.component('product', {
 var app = new Vue({
     el: '#app', 
     data: {
-        premium: true
+        premium: true,
+        cart: 0
+    },
+    methods: {
+        updateCart() {
+            this.cart += 1
+        }
     }
 });
