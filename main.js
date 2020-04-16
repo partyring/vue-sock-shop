@@ -1,4 +1,10 @@
 Vue.component('product', {
+    props: {
+        premium: {
+            type: Boolean,
+            required: true
+        }
+    },
     template:
     `
         <div class="product">
@@ -14,9 +20,13 @@ Vue.component('product', {
                 <p class="price">£{{ currentPrice }} <span v-if="onSale" class="badge--sale">On Sale!</span></p>
                 <p v-if="onSale" class="price--original">£{{ originalPrice }}</p>
 
+                <p v-if="premium">Free Shipping</p>
+                <p v-else>Shipping: £{{ shipping }}</p>
+
                 <p v-if="inventory > 10">In Stock</p>
                 <p v-else-if="inventory <= 10 && inventory > 0">Hurry, only {{ inventory }} left in stock!</p>
                 <p v-else>Out of Stock</p>
+                <p>User is premium: {{ premium }}</p>
 
                 <div v-for="size in sizes">
                     <span>{{ size }}</span>
@@ -106,10 +116,19 @@ Vue.component('product', {
                 return true;
             }
             return false;
+        },
+        shipping() {
+            if (this.premium) {
+                return 0
+            }
+            return 2.99
         }
     }
 })
 
 var app = new Vue({
     el: '#app', 
+    data: {
+        premium: true
+    }
 });
