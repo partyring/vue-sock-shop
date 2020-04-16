@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="app" class="app">
-        <span class="cart">Cart ({{ cart }})</span>
+        <span class="cart">Cart ({{ cart.length }})</span>
         <product :premium="premium" @add-to-cart="updateCart"></product>
     </div>
 
